@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>数组基础 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="类数组：类似于数组，但是不是数组1.通过getElementsByTagName获取的元素集合是类数组2.函数中的实参集合arguments也是类数组   for循环只能遍历到数组私有的一些属性，而for in 循环可以把一些自定义的公共属性也能遍历到  ####数组中的常用方法console.dir(Array.prototype)数组中的方法都定义在原型上，通过dir可以查看数组中的方法 1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数组基础">
+<meta property="og:url" content="http://yoursite.com/2018/06/28/Array/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="类数组：类似于数组，但是不是数组1.通过getElementsByTagName获取的元素集合是类数组2.函数中的实参集合arguments也是类数组   for循环只能遍历到数组私有的一些属性，而for in 循环可以把一些自定义的公共属性也能遍历到  ####数组中的常用方法console.dir(Array.prototype)数组中的方法都定义在原型上，通过dir可以查看数组中的方法 1">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-28T08:02:18.244Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数组基础">
+<meta name="twitter:description" content="类数组：类似于数组，但是不是数组1.通过getElementsByTagName获取的元素集合是类数组2.函数中的实参集合arguments也是类数组   for循环只能遍历到数组私有的一些属性，而for in 循环可以把一些自定义的公共属性也能遍历到  ####数组中的常用方法console.dir(Array.prototype)数组中的方法都定义在原型上，通过dir可以查看数组中的方法 1">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Array" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/28/Array/" class="article-date">
+  <time datetime="2018-06-28T07:56:24.575Z" itemprop="datePublished">2018-06-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数组基础
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>类数组：类似于数组，但是不是数组<br>1.通过getElementsByTagName获取的元素集合是类数组<br>2.函数中的实参集合arguments也是类数组</p>
+</blockquote>
+<blockquote>
+<p>for循环只能遍历到数组私有的一些属性，而for in 循环可以把一些自定义的公共属性也能遍历到</p>
+</blockquote>
+<p>####数组中的常用方法<br><code>console.dir(Array.prototype)</code>数组中的方法都定义在原型上，通过dir可以查看数组中的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">//=&gt;增加</span><br><span class="line">1.push:向数组的末尾追加新内容</span><br><span class="line">    参数：一到多个，任何数据类型都可以</span><br><span class="line">    返回值：新增后数组的长度</span><br><span class="line">    原有数组发生改变</span><br><span class="line">2.unshift:向数组开头追加新内容</span><br><span class="line">    参数：需要追加的内容，可以是多个任何数据类型的值</span><br><span class="line">    返回值：新增后数组的长度</span><br><span class="line">    原有数组发生改变 </span><br><span class="line">3.把数组当做一个普通的对象，使用对象键值对的操作，给其设置新的属性（索引）</span><br><span class="line">  ary[ary.length]=xxx 向数组的末尾追加了新的内容</span><br><span class="line">  </span><br><span class="line">//=&gt;删除</span><br><span class="line">1.pop:删除数组最后一项</span><br><span class="line">    参数：无</span><br><span class="line">    返回值：被删除的那一项</span><br><span class="line">    原有数组发生改变</span><br><span class="line">2.shift:删除数组第一项</span><br><span class="line">    参数：无</span><br><span class="line">    返回值：被删除的那一项</span><br><span class="line">    原数组发生改变</span><br><span class="line">3.把数组当做普通的对象操作</span><br><span class="line">    delete删除：delete ary[索引] 删除指定索引这一项</span><br><span class="line">    当前想被删除后，原有数组其它项的索引不会改变</span><br><span class="line">    当前数组的length也不会改变</span><br><span class="line">    </span><br><span class="line">    ary.length--;删除数组最后一项</span><br><span class="line">    </span><br><span class="line">//=&gt; splice:数组中内置的方法，可以实现数组的增加，修改，删除</span><br><span class="line">    splice实现删除</span><br><span class="line">        splice(n,m)：从索引n开始删除m个  m不写是删除到数组的末尾，</span><br></pre></td></tr></table></figure>
+<p>、</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/28/Array/" data-id="cjiya7a2t00008km8n953pe32" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/28/数组去重/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数组去重
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/28/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/28/数组去重/">数组去重</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/28/Array/">数组基础</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/28/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
