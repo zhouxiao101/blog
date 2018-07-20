@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>记录</title>
+  
+  <subtitle>敲代码的小行家</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-06-28T08:11:52.417Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>周潇</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数组去重</title>
+    <link href="http://yoursite.com/2018/06/28/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/"/>
+    <id>http://yoursite.com/2018/06/28/数组去重/</id>
+    <published>2018-06-28T07:59:58.549Z</published>
+    <updated>2018-06-28T08:11:52.417Z</updated>
+    
+    <content type="html"><![CDATA[<!-- 数组去重的四种方法 --><blockquote><p>方案一：<br>遍历数组中的每一项，拿每一项和它后面的项依次比较，如果相同了，则把相同的这一项在原来数组中删除<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ary=[<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">1</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;ary.length<span class="number">-1</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> cur=ary[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j=i+<span class="number">1</span>;j&lt;ary.length;j++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(cur==ary[j])&#123;</span><br><span class="line">            ary.splice(j,<span class="number">1</span>)</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></blockquote><blockquote><p>方案二：<br>利用indexOf来验证当前数组中是否包含某一项，包含把当前项删除掉(不兼容IE6~8)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ary=[<span class="number">5</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>,];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;ary.length;i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> cur=ary[i];</span><br><span class="line">    <span class="keyword">var</span> next=ary.slice(i+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span>(next.indexOf(cur)&gt;<span class="number">-1</span>)&#123;</span><br><span class="line">        ary.splice(i,<span class="number">1</span>);</span><br><span class="line">        i--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(ary.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a-b;</span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure></p></blockquote><blockquote><p>方案三：<br>遍历数组中的每一项，把每一项作为新对象的属性名和属性值存储起来，例如：当前项1，对象中存储{1:1}<br>在每一次向对象中存储之前，首先看一下原有对象中是否包含了这个属性(<code>typeof obj[xxx]===&#39;undefined&#39;说明当前对象中没有xxx这个属性</code>)，如果已经存在这个属性说明数组中的当前项是重复的(1-在原有数组中删除这一项 2-不再像对象中存储这个结果)，如果不存在，把当前项作为对象的属性名和属性值存储进去<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ary=[<span class="number">5</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>,];</span><br><span class="line"><span class="keyword">var</span> obj=&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;ary.length;i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> cur=ary[i];</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> obj[cur]!==<span class="string">'undefined'</span>)&#123;</span><br><span class="line">        ary[i]=ary[ary.length<span class="number">-1</span>];<span class="comment">//用splice删除当前项，会让后面所有项向前挪一位（用最后一项代替重复项，后面所有项不受影响）</span></span><br><span class="line">        ary.length--;<span class="comment">//删除数组最后一项</span></span><br><span class="line">        i--;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    obj[cur]=cur;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></blockquote><blockquote><p>方案四：<br>相邻比较法，首先给数组进行排序，然后相邻两项比较，相同的话把后一项在数组中去掉</p></blockquote><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ary=[<span class="number">5</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>,];</span><br><span class="line">ary.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a-b;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> aryCur=[ary[<span class="number">0</span>]];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;ary.length;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(ary[i]!==aryCur[aryCur.length<span class="number">-1</span>])&#123;</span><br><span class="line">        aryCur.push(ary[i])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- 数组去重的四种方法 --&gt;
+&lt;blockquote&gt;
+&lt;p&gt;方案一：&lt;br&gt;遍历数组中的每一项，拿每一项和它后面的项依次比较，如果相同了，则把相同的这一项在原来数组中删除&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;t
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2018/06/28/Array/"/>
+    <id>http://yoursite.com/2018/06/28/Array/</id>
+    <published>2018-06-28T07:56:24.575Z</published>
+    <updated>2018-07-05T03:37:33.204Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="title-数组基础"><a href="#title-数组基础" class="headerlink" title="title: 数组基础"></a>title: 数组基础</h2><!-- 数组基础 --><blockquote><p>类数组：类似于数组，但是不是数组<br>1.通过getElementsByTagName获取的元素集合是类数组<br>2.函数中的实参集合arguments也是类数组</p></blockquote><blockquote><p>for循环只能遍历到数组私有的一些属性，而for in 循环可以把一些自定义的公共属性也能遍历到</p></blockquote><p>####数组中的常用方法<br><code>console.dir(Array.prototype)</code>数组中的方法都定义在原型上，通过dir可以查看数组中的方法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">//=&gt;增加</span><br><span class="line">1.push:向数组的末尾追加新内容</span><br><span class="line">    参数：一到多个，任何数据类型都可以</span><br><span class="line">    返回值：新增后数组的长度</span><br><span class="line">    原有数组发生改变</span><br><span class="line">2.unshift:向数组开头追加新内容</span><br><span class="line">    参数：需要追加的内容，可以是多个任何数据类型的值</span><br><span class="line">    返回值：新增后数组的长度</span><br><span class="line">    原有数组发生改变 </span><br><span class="line">3.把数组当做一个普通的对象，使用对象键值对的操作，给其设置新的属性（索引）</span><br><span class="line">  ary[ary.length]=xxx 向数组的末尾追加了新的内容</span><br><span class="line">  </span><br><span class="line">//=&gt;删除</span><br><span class="line">1.pop:删除数组最后一项</span><br><span class="line">    参数：无</span><br><span class="line">    返回值：被删除的那一项</span><br><span class="line">    原有数组发生改变</span><br><span class="line">2.shift:删除数组第一项</span><br><span class="line">    参数：无</span><br><span class="line">    返回值：被删除的那一项</span><br><span class="line">    原数组发生改变</span><br><span class="line">3.把数组当做普通的对象操作</span><br><span class="line">    delete删除：delete ary[索引] 删除指定索引这一项</span><br><span class="line">    当前想被删除后，原有数组其它项的索引不会改变</span><br><span class="line">    当前数组的length也不会改变</span><br><span class="line">    </span><br><span class="line">    ary.length--;删除数组最后一项</span><br><span class="line">    </span><br><span class="line">//=&gt; splice:数组中内置的方法，可以实现数组的增加，修改，删除</span><br><span class="line">    splice实现删除</span><br><span class="line">        splice(n,m)：从索引n开始删除m个  m不写是删除到数组的末尾，</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;title-数组基础&quot;&gt;&lt;a href=&quot;#title-数组基础&quot; class=&quot;headerlink&quot; title=&quot;title: 数组基础&quot;&gt;&lt;/a&gt;title: 数组基础&lt;/h2&gt;&lt;!-- 数组基础 --&gt;
+&lt;blockquote&gt;
+&lt;p&gt;类数组：类似于数组
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+      <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2018/06/28/hello-world/"/>
+    <id>http://yoursite.com/2018/06/28/hello-world/</id>
+    <published>2018-06-28T07:41:51.539Z</published>
+    <updated>2018-06-28T07:41:51.540Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
