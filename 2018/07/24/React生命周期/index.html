@@ -14,25 +14,25 @@
     
     
     
-    <title>数组基础 | 记录 | 敲代码的小行家</title>
+    <title>React生命周期 | 记录 | 敲代码的小行家</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="数组,JavaScript">
-    <meta name="description" content="类数组：类似于数组，但是不是数组1.通过getElementsByTagName获取的元素集合是类数组2.函数中的实参集合arguments也是类数组   for循环只能遍历到数组私有的一些属性，而for in 循环可以把一些自定义的公共属性也能遍历到  ####数组中的常用方法console.dir(Array.prototype)数组中的方法都定义在原型上，通过dir可以查看数组中的方法">
-<meta name="keywords" content="数组,JavaScript">
+    <meta name="keywords" content="React">
+    <meta name="description" content="1,getDefaultProps()1设置默认的props，也可以用defaultProps设置组件的默认属性。 2,getInitialState()1在使用es6的class语法时是没有这个钩子函数的，可以直接在constructor中定义this.state. 3,componentWillMount()1组件初始化时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改stat">
+<meta name="keywords" content="React">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数组基础">
-<meta property="og:url" content="http://yoursite.com/2018/06/28/Array/index.html">
+<meta property="og:title" content="React生命周期">
+<meta property="og:url" content="http://yoursite.com/2018/07/24/React生命周期/index.html">
 <meta property="og:site_name" content="记录">
-<meta property="og:description" content="类数组：类似于数组，但是不是数组1.通过getElementsByTagName获取的元素集合是类数组2.函数中的实参集合arguments也是类数组   for循环只能遍历到数组私有的一些属性，而for in 循环可以把一些自定义的公共属性也能遍历到  ####数组中的常用方法console.dir(Array.prototype)数组中的方法都定义在原型上，通过dir可以查看数组中的方法">
+<meta property="og:description" content="1,getDefaultProps()1设置默认的props，也可以用defaultProps设置组件的默认属性。 2,getInitialState()1在使用es6的class语法时是没有这个钩子函数的，可以直接在constructor中定义this.state. 3,componentWillMount()1组件初始化时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改stat">
 <meta property="og:locale" content="877079215@qq.com">
-<meta property="og:updated_time" content="2018-07-27T02:41:02.473Z">
+<meta property="og:updated_time" content="2018-07-27T02:44:07.486Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数组基础">
-<meta name="twitter:description" content="类数组：类似于数组，但是不是数组1.通过getElementsByTagName获取的元素集合是类数组2.函数中的实参集合arguments也是类数组   for循环只能遍历到数组私有的一些属性，而for in 循环可以把一些自定义的公共属性也能遍历到  ####数组中的常用方法console.dir(Array.prototype)数组中的方法都定义在原型上，通过dir可以查看数组中的方法">
+<meta name="twitter:title" content="React生命周期">
+<meta name="twitter:description" content="1,getDefaultProps()1设置默认的props，也可以用defaultProps设置组件的默认属性。 2,getInitialState()1在使用es6的class语法时是没有这个钩子函数的，可以直接在constructor中定义this.state. 3,componentWillMount()1组件初始化时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改stat">
     
         <link rel="alternate" type="application/atom+xml" title="记录" href="/atom.xml">
     
@@ -127,7 +127,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">数组基础</div>
+        <div class="flex-col header-title ellipsis">React生命周期</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -149,11 +149,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">数组基础</h1>
+        <h1 class="title">React生命周期</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-06-28T07:56:24.575Z" itemprop="datePublished" class="page-time">
-  2018-06-28
+                <time datetime="2018-07-24T06:47:29.777Z" itemprop="datePublished" class="page-time">
+  2018-07-24
 </time>
 
 
@@ -170,13 +170,13 @@
 <div class="container body-wrap">
     
 
-<article id="post-Array"
+<article id="post-React生命周期"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">数组基础</h1>
+        <h1 class="post-card-title">React生命周期</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-06-28 15:56:24" datetime="2018-06-28T07:56:24.575Z"  itemprop="datePublished">2018-06-28</time>
+            <time class="post-time" title="2018-07-24 14:47:29" datetime="2018-07-24T06:47:29.777Z"  itemprop="datePublished">2018-07-24</time>
 
             
 
@@ -189,15 +189,17 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <!-- 数组基础 -->
-<blockquote>
-<p>类数组：类似于数组，但是不是数组<br>1.通过getElementsByTagName获取的元素集合是类数组<br>2.函数中的实参集合arguments也是类数组</p>
-</blockquote>
-<blockquote>
-<p>for循环只能遍历到数组私有的一些属性，而for in 循环可以把一些自定义的公共属性也能遍历到</p>
-</blockquote>
-<p>####数组中的常用方法<br><code>console.dir(Array.prototype)</code>数组中的方法都定义在原型上，通过dir可以查看数组中的方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">//=&gt;增加</span><br><span class="line">1.push:向数组的末尾追加新内容</span><br><span class="line">    参数：一到多个，任何数据类型都可以</span><br><span class="line">    返回值：新增后数组的长度</span><br><span class="line">    原有数组发生改变</span><br><span class="line">2.unshift:向数组开头追加新内容</span><br><span class="line">    参数：需要追加的内容，可以是多个任何数据类型的值</span><br><span class="line">    返回值：新增后数组的长度</span><br><span class="line">    原有数组发生改变 </span><br><span class="line">3.把数组当做一个普通的对象，使用对象键值对的操作，给其设置新的属性（索引）</span><br><span class="line">  ary[ary.length]=xxx 向数组的末尾追加了新的内容</span><br><span class="line">  </span><br><span class="line">//=&gt;删除</span><br><span class="line">1.pop:删除数组最后一项</span><br><span class="line">    参数：无</span><br><span class="line">    返回值：被删除的那一项</span><br><span class="line">    原有数组发生改变</span><br><span class="line">2.shift:删除数组第一项</span><br><span class="line">    参数：无</span><br><span class="line">    返回值：被删除的那一项</span><br><span class="line">    原数组发生改变</span><br><span class="line">3.把数组当做普通的对象操作</span><br><span class="line">    delete删除：delete ary[索引] 删除指定索引这一项</span><br><span class="line">    当前想被删除后，原有数组其它项的索引不会改变</span><br><span class="line">    当前数组的length也不会改变</span><br><span class="line">    </span><br><span class="line">    ary.length--;删除数组最后一项</span><br><span class="line">    </span><br><span class="line">//=&gt; splice:数组中内置的方法，可以实现数组的增加，修改，删除</span><br><span class="line">    splice实现删除</span><br><span class="line">        splice(n,m)：从索引n开始删除m个  m不写是删除到数组的末尾，</span><br></pre></td></tr></table></figure>
+            <p>1,getDefaultProps()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">设置默认的props，也可以用defaultProps设置组件的默认属性。</span><br></pre></td></tr></table></figure></p>
+<p>2,getInitialState()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在使用es6的class语法时是没有这个钩子函数的，可以直接在constructor中定义this.state.</span><br></pre></td></tr></table></figure></p>
+<p>3,componentWillMount()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">组件初始化时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改state.</span><br></pre></td></tr></table></figure></p>
+<p>4,render()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react最重要的步骤，创建虚拟dom，进行diff算法，更新dom树都在此进行。此时就不能更改state了。</span><br></pre></td></tr></table></figure></p>
+<p>5，componentDidMount()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">组件渲染之后调用，只调用一次</span><br></pre></td></tr></table></figure></p>
+<p>6，componentWillReceiveProps(nextProps)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">组件初始化时不调用，组件接受新的props时调用</span><br></pre></td></tr></table></figure></p>
+<p>7，shouldComponentUpdate(nextProps,nextState)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">react性能优化非常重要的一环。</span><br><span class="line">组件接受新的state或者props时调用，我们可以设置在此对比前后两个props和state是否相同，</span><br><span class="line">如果相同则返回false组织更新，因为相同的属性状态一定会生成相同的dom树，这样就不需要</span><br><span class="line">创造新的dom树和旧的dom树进行diff算法对比，节省大量性能，尤其是在dom结构复杂的时候</span><br></pre></td></tr></table></figure></p>
+<p>8,componentWillUpdata(nextProps,nextState)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">组件初始化时不调用，只有在组件将要更新时才调用，此时可以修改state</span><br></pre></td></tr></table></figure></p>
+<p>9，render()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">组件渲染</span><br></pre></td></tr></table></figure></p>
+<p>10,componentDidUpdate()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">组件初始化时不调用，组件更新完成后调用，此时可以获取dom节点。</span><br></pre></td></tr></table></figure></p>
+<p>11,componentWillUnmount()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">组件将要卸载时调用，一些事件监听和定时器需要在此时清除</span><br></pre></td></tr></table></figure></p>
 
         </div>
 
@@ -206,12 +208,12 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-07-27T02:41:02.473Z" itemprop="dateUpdated">2018-07-27 10:41:02</time>
+    Last updated: <time datetime="2018-07-27T02:44:07.486Z" itemprop="dateUpdated">2018-07-27 10:44:07</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/06/28/Array/" target="_blank" rel="external">http://yoursite.com/2018/06/28/Array/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/07/24/React生命周期/" target="_blank" rel="external">http://yoursite.com/2018/07/24/React生命周期/</a>
         
     </div>
     
@@ -232,7 +234,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组/">数组</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
 
             
@@ -242,7 +244,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/06/28/Array/&title=《数组基础》 — 记录&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/07/24/React生命周期/&title=《React生命周期》 — 记录&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -252,22 +254,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/06/28/Array/&title=《数组基础》 — 记录&source=代码使我快乐" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/07/24/React生命周期/&title=《React生命周期》 — 记录&source=代码使我快乐" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/28/Array/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/24/React生命周期/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数组基础》 — 记录&url=http://yoursite.com/2018/06/28/Array/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React生命周期》 — 记录&url=http://yoursite.com/2018/07/24/React生命周期/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/28/Array/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/24/React生命周期/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -287,21 +289,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/06/28/数组去重/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">数组去重</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/06/28/hello-world/" id="post-next" class="post-nav-link">
+      <a href="/2018/07/24/面试题总结（一）/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Hello World</h4>
+        <h4 class="title">面试总结（一）</h4>
       </a>
     </div>
   
@@ -398,7 +393,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/06/28/Array/&title=《数组基础》 — 记录&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/07/24/React生命周期/&title=《React生命周期》 — 记录&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -408,22 +403,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/06/28/Array/&title=《数组基础》 — 记录&source=代码使我快乐" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/07/24/React生命周期/&title=《React生命周期》 — 记录&source=代码使我快乐" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/28/Array/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/24/React生命周期/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数组基础》 — 记录&url=http://yoursite.com/2018/06/28/Array/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React生命周期》 — 记录&url=http://yoursite.com/2018/07/24/React生命周期/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/28/Array/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/24/React生命周期/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -434,7 +429,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/06/28/Array/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/07/24/React生命周期/" alt="微信分享二维码">
 </div>
 
 
